@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8fff8;
+    }
+
+    .navbar-custom {
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 0.6rem 1rem;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      animation: scrollText 18s linear infinite;
+      padding-left: 100%;
+      white-space: nowrap;
+    }
+
+    .marquee-text > div {
+      display: inline-block;
+      margin-right: 50px;
+    }
+
+    @keyframes scrollText {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @media (max-width: 768px) {
+      .marquee-text {
+        font-size: 0.8rem;
+      }
+    }
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #d1fae5 !important;
+}
+
+.offcanvas {
+  background-color: #000000;
+}
+
+.offcanvas .nav-link {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.offcanvas .nav-link:hover {
+  color: #d1fae5;
+}
+
+.offcanvas-header .btn-close {
+  filter: invert(1);
+}
+
+.hero {
+  background-color: #04630c;
+  background: linear-gradient(to right, #2695a3, #79ca64);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #e4f9e7;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #37883d;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.floating-logos {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floating-logos img.floating {
+  position: absolute;
+  width: 40px;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#typed-extra-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+#typed-paragraph {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.animated {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.responsive-logo {
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-logo {
+    max-width: 150px;
+  }
+}
+
+.running-text-container {
+  width: 100%;
+  overflow: hidden;
+  background: #37883d;
+  white-space: nowrap;
+}
+
+.running-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-horizontal-container {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 2.5em;
+  line-height: 1.2;
+}
+
+.marquee-horizontal-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 12s linear infinite;
+  padding-left: 100%;
+}
+
+.marquee-horizontal-text > div {
+  display: block;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-custom fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- Kiri: Sidebar + Logo -->
+    <div class="d-flex align-items-center">
+      <button class="btn me-3" style="background-color: black; color: white;" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        ☰
+      </button>
+      <img src="img/yayasan.png" alt="Logo Yayasan" style="height: 40px; margin-right: 10px;" />
+    </div>
+
+    <!-- Tengah: Marquee -->
+    <div class="flex-grow-1 mx-2 marquee-horizontal-container">
+      <div class="marquee-horizontal-text">
+        <div class="fw-bold text-dark">YAYASAN ALMANHAJUSSAWI DHIYAU NUSANTARA.</div>
+        <div class="small text-dark">KEMENKUMHAM NO : AHU-0021398.AH.01.04.TAHUN 2022</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- sidebar.php -->
+<div class="offcanvas offcanvas-start text-white" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">BERANDA</a></li>
+      <li class="nav-item"><a class="nav-link" href="profile.html">PROFIL</a></li>
+      <li class="nav-item"><a class="nav-link" href="portofolio.html">PORTOFOLIO</a></li>
+
+      <!-- Dropdown Data -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseData" role="button" aria-expanded="false" aria-controls="collapseData">
+          DATA ▾
+        </a>
+        <div class="collapse" id="collapseData">
+          <ul class="nav flex-column ms-3">
+          <li class="nav-item"><a class="nav-link" href="santri_maghrib.html">SANTRI MAGHRIB</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_isya.html">SANTRI ISYA</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_ibu.html">SANTRI IBU</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_bpk.html">SANTRI BPK</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_tpq.html">SANTRI TPQ</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="kontak.html">KONTAK</a></li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Konten Utama -->
+<main class="container my-5">
+  <h1 class="mt-5 pt-5 text-center fade-in-up text-success fw-bold">📢 Sederet Profile Kami</h1>
+<p class="text-center mb-4 fade-in-up fs-5">
+  
+  </p>
+
+  <!-- Card 1: Atas -->
+<div class="mb-4">
+  <div class="card shadow-sm floating-card">
+    <div class="card-header bg-success text-white fs-5">
+      SEJARAH SINGKAT YAYASAN ALMANHAJUSSAWI DHIYA'U NUSANTARA
+    </div>
+    <div class="card-body fs-5">
+      <div class="row align-items-center">
+        <!-- Gambar di kiri -->
+        <div class="col-md-4 col-12 text-center mb-3 mb-md-0">
+          <img src="img/yayasan.png" alt="Foto Sejarah" class="img-fluid rounded" style="max-width: 200px; aspect-ratio: 1 / 1; object-fit: cover;">
+        </div>
+
+        <!-- Teks di kanan -->
+        <div class="col-md-8 col-12">
+          <p>
+            Yayasan Almanhajussawi Dhiya’u Nusantara didirikan pada tahun 2022 oleh Ust. H. Waisul Qurni Zainudin, S.Pd., sebagai bentuk kepedulian terhadap pendidikan Islam dan pembinaan umat.
+          </p>
+          <p>
+            Ini berfokus pada program-program pendidikan dan dakwah seperti:
+          </p>
+          <ul class="ps-3">
+            <li>Gramatikal Arab Dasar</li>
+            <li>Tahsin Al‑Qur’an &amp; Quranic Centre</li>
+            <li>Fiqih Dasar</li>
+            <li>Latihan Ceramah</li>
+            <li>Baca Kitab Melayu Arab</li>
+            <li>Majelis Taklim Ibu‑Ibu</li>
+            <li>TPQ Anak</li>
+            <li>Kegiatan Sosial (khitan massal, santunan yatim, qurban, dll.)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 mb-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-success text-white fs-5">
+      <b>PROFILE GURU</b>
+    </div>
+    <div class="card-body fs-5">
+      <div id="profileCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="card border-0 px-2 pt-3">
+              <div class="card-body">
+                <div style="float: left; margin-right: 15px; width: 130px;">
+                  <img src="img/Ustadz H. Waisul Qurni Zainudin.png" class="img-fluid rounded" alt="Ustadz 1">
+                </div>
+                <h3 class="card-title">Ustadz H. Waisul Qurni Zainudin</h3>
+                <p>Beliau dikenal karena keilmuannya dalam tafsir dan dakwah di wilayah Jawa Barat. Sosok yang aktif dalam pengajaran dan kegiatan dakwah di berbagai pesantren dan masjid.</p>
+                <p><small class="text-muted">Last updated 26 June 2025</small></p>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="card border-0 px-2 pt-3">
+              <div class="card-body">
+                <div style="float: left; margin-right: 15px; width: 130px;">
+                  <img src="img/KH_E._Mohammad_Hilm.png" class="img-fluid rounded" alt="Ustadz 2">
+                </div>
+                <h3 class="card-title">KH E. Mohammad Hilmi</h3>
+                <p>KH E. Mohammad Hilmi adalah ulama kharismatik asal Banten dan pendiri Pondok Pesantren Nurul Huda. Ia dikenal sebagai tokoh penting dalam pengajaran ilmu falak dan ahli dalam hisab-rukyat penentuan awal bulan Hijriyah. Sejak muda, beliau tekun mempelajari kitab klasik dan ilmu syar’i secara mendalam. Aktif membina majelis taklim dan membimbing santri dalam akhlak serta kehidupan sosial islami. Warisan keilmuannya terus dilanjutkan pesantren, menjadi pusat ilmu falak dan syariat di Banten.</p>
+                <p><small class="text-muted">Last updated 26 June 2025</small></p>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="card border-0 px-2 pt-3">
+              <div class="card-body">
+                <div style="float: left; margin-right: 15px; width: 130px;">
+                  <img src="img/Habib Zein bin Smith.png" class="img-fluid rounded" alt="Ustadz 3">
+                </div>
+                <h3 class="card-title">Habib Zein bin Smith</h3>
+                <p>Beliau merupakan murid dari para ulama besar, seperti Al-Habib Abdul Qadir Assegaf dan Habib Muhammad bin Alawi al-Maliki. Aktif mengajar, berdakwah, dan membina majelis ilmu di berbagai negara, termasuk Indonesia dan Arab Saudi. Karya-karyanya dalam bidang fiqih dan tasawuf banyak dijadikan rujukan oleh para penuntut ilmu. Wibawa dan kelembutannya menjadikan beliau dicintai umat dan dihormati oleh para ulama dunia.</p>
+                <p><small class="text-muted">Last updated 26 June 2025</small></p>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <div class="card border-0 px-2 pt-3">
+              <div class="card-body">
+                <div style="float: left; margin-right: 15px; width: 130px;">
+                  <img src="img/Habib Salim.png" class="img-fluid rounded" alt="Ustadz 4">
+                </div>
+                <h3 class="card-title">Habib Salim bin Abdullah al-Shatiri</h3>
+                <p>Habib Salim bin Abdullah al-Shatiri adalah ulama besar kelahiran Tarim, Hadramaut, pada tahun 1357 H, putra bungsu dari Habib Abdullah bin Umar al-Shatiri. Sejak muda, beliau menuntut ilmu dari para ulama terkemuka di Hadramaut dan Makkah, lalu mengajar di Aden meski sempat mengalami penahanan oleh rezim komunis. Setelah kembali ke Tarim pada 1990, beliau memimpin Rubath Tarim dan membimbing santri dari berbagai penjuru dunia selama puluhan tahun. Wafat pada 17 Februari 2018 di Jeddah, beliau dikenang sebagai Sulthan al-‘Ilm karena keluasan ilmunya, kewibawaannya, dan keteguhannya dalam manhaj Ahlus Sunnah. Namanya tetap harum sebagai simbol keilmuan dan adab ulama Hadramaut.</p>
+                <p><small class="text-muted">Last updated 26 June 2025</small></p>
+                <div style="clear: both;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <button class="btn btn-dark rounded-circle" type="button" data-bs-target="#profileCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="btn btn-dark rounded-circle" type="button" data-bs-target="#profileCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Swiper CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Section Carousel -->
+<section class="kegiatan-slider py-5" style="background: linear-gradient(135deg, #14532d, #04630c);">
+  <div class="container">
+    <h4 class="text-white text-center mb-4">Kegiatan Yayasan</h4>
+
+    <div class="swiper kegiatanSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- START CARD -->
+        <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="swiper-slide">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="img/keg1.jpg" class="card-img-top rounded-top-4" alt="Kajian Rutin">
+            <div class="card-body bg-light rounded-bottom-4">
+              <h5 class="card-title fw-semibold">Kajian Rutin</h5>
+              <p class="card-text small">Kajian malam Ahad bersama ustadz lokal.</p>
+
+              <!-- Galeri 5 Foto -->
+              <div class="d-flex justify-content-between gap-1 mt-3">
+                <img src="img/dok1a.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1b.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1c.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1d.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+                <img src="img/dok1e.jpg" class="img-thumbnail rounded-2" style="height: 55px; width: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigasi & Pagination -->
+      <div class="swiper-button-next text-warning"></div>
+      <div class="swiper-button-prev text-warning"></div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS Styling -->
+<style>
+.kegiatan-slider .card {
+  transition: transform 0.3s ease;
+}
+.kegiatan-slider .card:hover {
+  transform: translateY(-4px);
+}
+.kegiatan-slider .img-thumbnail {
+  padding: 0;
+  border: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffc107;
+}
+.swiper-pagination-bullet-active {
+  background-color: #ffc107;
+}
+</style>
+
+<!-- Swiper Init Script -->
+<script>
+new Swiper(".kegiatanSwiper", {
+  slidesPerView: 1.2,
+  spaceBetween: 16,
+  loop: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    576: { slidesPerView: 1.4 },
+    768: { slidesPerView: 2.5 },
+    992: { slidesPerView: 3.2 }
+  }
+});
+</script>
+
+  <div class="container py-5">
+  <h2 class="text-center mb-4 text-success">Struktur Organisasi Yayasan</h2>
+
+  <!-- Level 1: Pembina -->
+  <div class="d-flex justify-content-center mb-4">
+    <div class="card text-center border-success mx-2" style="width: 200px;">
+      <div class="card-header bg-success text-white">Pembina</div>
+      <div class="card-body">
+        <img src="img/pembina.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Pembina">
+        <p class="mb-0">KH. Hilmy Syaroni</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 2: Ketua & Wakil Ketua -->
+  <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+    <div class="card text-center border-primary" style="width: 200px;">
+      <div class="card-header bg-primary text-white">Ketua Yayasan</div>
+      <div class="card-body">
+        <img src="img/Ustadz H. Waisul Qurni Zainudin.png" class="rounded-circle mb-2" width="80" height="80" alt="Ketua">
+        <p class="mb-0">Ust. Ahmad Ridwan</p>
+      </div>
+    </div>
+    <div class="card text-center border-info" style="width: 200px;">
+      <div class="card-header bg-info text-white">Wakil Ketua</div>
+      <div class="card-body">
+        <img src="img/wakil.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Wakil">
+        <p class="mb-0">Ust. Luthfi Hakim</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 3: Sekretaris & Bendahara -->
+  <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+    <div class="card text-center border-warning" style="width: 200px;">
+      <div class="card-header bg-warning text-dark">Sekretaris</div>
+      <div class="card-body">
+        <img src="img/sekretaris.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Sekretaris">
+        <p class="mb-0">Farhan Maulana</p>
+      </div>
+    </div>
+    <div class="card text-center border-warning" style="width: 200px;">
+      <div class="card-header bg-warning text-dark">Bendahara</div>
+      <div class="card-body">
+        <img src="img/bendahara.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Bendahara">
+        <p class="mb-0">Nur Aini, S.E.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 4: Bidang-Bidang -->
+  <div class="d-flex justify-content-center flex-wrap gap-3">
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Pendidikan</div>
+      <div class="card-body">
+        <img src="img/pendidikan.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Pendidikan">
+        <p class="mb-0">Faisal Hakim</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Sosial</div>
+      <div class="card-body">
+        <img src="img/sosial.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Sosial">
+        <p class="mb-0">Siti Rahmah</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Humas</div>
+      <div class="card-body">
+        <img src="img/humas.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Humas">
+        <p class="mb-0">Rahmat Prasetyo</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Tim Media</div>
+      <div class="card-body">
+        <img src="img/media.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Media">
+        <p class="mb-0">Muhammad Zain</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Keamanan</div>
+      <div class="card-body">
+        <img src="img/keamanan.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Keamanan">
+        <p class="mb-0">Ali Zainuddin</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Kesehatan</div>
+      <div class="card-body">
+        <img src="img/kesehatan.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Kesehatan">
+        <p class="mb-0">dr. Laila Khairunisa</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">IT & Website</div>
+      <div class="card-body">
+        <img src="img/it.jpg" class="rounded-circle mb-2" width="80" height="80" alt="IT">
+        <p class="mb-0">Fajar Nugraha</p>
+      </div>
+    </div>
+    <div class="card text-center border-secondary" style="width: 200px;">
+      <div class="card-header bg-secondary text-white">Kebersihan</div>
+      <div class="card-body">
+        <img src="img/kebersihan.jpg" class="rounded-circle mb-2" width="80" height="80" alt="Kebersihan">
+        <p class="mb-0">Dewi Lestari</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+
+  <!-- Footer -->
+  <footer>
+  <marquee behavior="scroll" direction="left">
+    <i class="fab fa-tiktok" style="color: #000000;"></i>
+    <span style="color: #000000;"> Tiktok: kongkowams_ </span>
+    
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+    <i class="fab fa-instagram" style="color: #db0a9d;"></i>
+    <span style="color: #db0a9d;"> Instagram: kongkowams_</span>
+
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+    <i class="fab fa-youtube" style="color: #FF0000;"></i>
+    <span style="color: #FF0000;"> Youtube: kongkowams_ </span>
+
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+   <span style="color: #000000;">BERGERAK BERSAMA. WUJUDKAN HARAPAN LEWAT BANK MANDIRI 1660-0061-70021 KODE BANK 008 A/N ALMANHAJUSSAWI DHIYAU</span>
+
+   &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in-up");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("appear");
+          observer.unobserve(entry.target); // hanya muncul sekali
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

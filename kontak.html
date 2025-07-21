@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+   body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fff8;
+}
+
+/* Navbar Hijau Tua */
+.navbar-custom {
+  background-color: #000000; /* Navbar atas: hitam */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #d1fae5 !important;
+}
+
+.offcanvas {
+  background-color: #000000; /* Sidebar: hitam */
+}
+
+.offcanvas .nav-link {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.offcanvas .nav-link:hover {
+  color: #d1fae5;
+}
+
+.offcanvas-header .btn-close {
+  filter: invert(1); /* Biar tombol 'x' kelihatan di background gelap */
+}
+
+/* Hero Hijau Tua */
+.hero {
+  background-color: #04630c;
+  background: linear-gradient(to right, #2695a3, #79ca64);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #e4f9e7;
+  margin-top: 10px;
+}
+
+/* Footer Hijau Tua */
+footer {
+  background-color: #37883d;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 500;
+}
+/* Animasi Logo Melayang */
+.floating-logos {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floating-logos img.floating {
+  position: absolute;
+  width: 40px;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+
+  .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+#typed-extra-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+#typed-paragraph {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+/* Animasi Fade In */
+  .animated {
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .responsive-logo {
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-logo {
+    max-width: 150px;
+  }
+}
+.running-text-container {
+    width: 100%;
+    overflow: hidden;
+    background: #37883d; /* bisa diganti sesuai tema */
+    white-space: nowrap;
+  }
+
+  .running-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  /* Navbar lebih tinggi dan tetap hitam */
+.navbar-custom {
+  background-color: #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.7rem;
+  min-height: 70px; /* menambah tinggi navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container teks berjalan */
+.marquee-horizontal-container {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 2.5em; /* cukup untuk 2 baris */
+  line-height: 1.2;
+}
+
+/* Teks berjalan dua baris */
+.marquee-horizontal-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 12s linear infinite;
+  padding-left: 100%; /* Mulai dari kanan */
+}
+
+/* Setiap baris teks */
+.marquee-horizontal-text > div {
+  display: block;
+}
+
+/* Animasi scroll kiri */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+</style>
+</head>
+<body>
+ <!-- Navbar -->
+<!-- Tombol Toggle Sidebar -->
+<nav class="navbar navbar-custom fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- Kiri: Sidebar + Logo -->
+    <div class="d-flex align-items-center">
+      <button class="btn me-3" style="background-color: black; color: white;" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        ☰
+      </button>
+      <img src="img/yayasan.png" alt="Logo Yayasan" style="height: 40px; margin-right: 10px;" />
+    </div>
+
+    <!-- Tengah: Marquee -->
+    <div class="flex-grow-1 mx-2 marquee-horizontal-container">
+      <div class="marquee-horizontal-text">
+        <div class="fw-bold text-dark">YAYASAN ALMANHAJUSSAWI DHIYAU NUSANTARA.</div>
+        <div class="small text-dark">KEMENKUMHAM NO : AHU-0021398.AH.01.04.TAHUN 2022</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- sidebar.php -->
+<div class="offcanvas offcanvas-start text-white" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">BERANDA</a></li>
+      <li class="nav-item"><a class="nav-link" href="profile.html">PROFIL</a></li>
+      <li class="nav-item"><a class="nav-link" href="portofolio.html">PORTOFOLIO</a></li>
+
+      <!-- Dropdown Data -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseData" role="button" aria-expanded="false" aria-controls="collapseData">
+          DATA ▾
+        </a>
+        <div class="collapse" id="collapseData">
+          <ul class="nav flex-column ms-3">
+          <li class="nav-item"><a class="nav-link" href="santri_maghrib.html">SANTRI MAGHRIB</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_isya.html">SANTRI ISYA</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_ibu.html">SANTRI IBU</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_bpk.html">SANTRI BPK</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_tpq.html">SANTRI TPQ</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="kontak.html">KONTAK</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<main class="container my-5">
+
+  <h2 class="text-center mt-5 pt-5 fade-in-up">Sub Yayasan</h2>
+
+  <!-- PEWUJUD HARAPAN -->
+<div class="card shadow mb-5">
+  <div class="card-header bg-success text-white text-center fs-5">
+    <strong>Pewujud Harapan</strong>
+  </div>
+
+  <div class="card-body p-0">
+    <table class="table table-striped mb-0 text-center align-middle" id="donasiTable">
+      <thead class="table-success">
+        <tr>
+          <th style="width: 10%;">No</th>
+          <th>Nama Donatur</th>
+          <th>Kota</th>
+          <th>Donasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Donatur Tetap Tampil -->
+        <tr><td>1</td><td>Ahmad Fauzi</td><td>Bandung</td><td>Rp&nbsp;200.000</td></tr>
+        <tr><td>2</td><td>Siti Nurhaliza</td><td>Tangerang</td><td>Rp&nbsp;500.000</td></tr>
+        <tr><td>3</td><td>Hamba Allah</td><td>Jakarta</td><td>Rp&nbsp;1.000.000</td></tr>
+        <tr><td>4</td><td>Muhammad Rizki</td><td>Yogyakarta</td><td>Rp&nbsp;250.000</td></tr>
+        <tr><td>5</td><td>Tanpa Nama</td><td>Surabaya</td><td>Rp&nbsp;100.000</td></tr>
+      </tbody>
+
+      <!-- Donatur Tersembunyi -->
+      <tbody id="moreDonors" class="collapse">
+        <tr><td>6</td><td>Fulanah</td><td>Bekasi</td><td>Rp&nbsp;150.000</td></tr>
+        <tr><td>7</td><td>Hamba Allah</td><td>Cirebon</td><td>Rp&nbsp;300.000</td></tr>
+        <tr><td>8</td><td>Rina Wulandari</td><td>Semarang</td><td>Rp&nbsp;400.000</td></tr>
+        <tr><td>9</td><td>Bapak Dermawan</td><td>Depok</td><td>Rp&nbsp;750.000</td></tr>
+        <tr><td>10</td><td>Anonim</td><td>Solo</td><td>Rp&nbsp;50.000</td></tr>
+         <tr><td>11</td><td>Bapak Dermawan</td><td>Depok</td><td>Rp&nbsp;750.000</td></tr>
+        <tr><td>12</td><td>Anonim</td><td>Solo</td><td>Rp&nbsp;50.000</td></tr>
+      
+      </tbody>
+
+      <!-- Total Uang Masuk -->
+      <tfoot class="table-success fw-bold">
+        <tr>
+          <td colspan="3">Total Donasi</td>
+          <td id="totalDonasi">Rp 0</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Tombol Toggle -->
+    <div class="text-center my-3">
+      <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse"
+              data-bs-target="#moreDonors" aria-expanded="false"
+              aria-controls="moreDonors" id="toggleButton">
+        Selengkapnya
+      </button>
+    </div>
+  </div>
+
+  <div class="card-footer text-center bg-light text-success fw-semibold">
+    Terima kasih atas dukungan dalam mewujudkan harapan bersama 🌿
+  </div>
+</div>
+
+<!-- JavaScript Hitung Total Donasi -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const table = document.getElementById("donasiTable");
+    const totalCell = document.getElementById("totalDonasi");
+    let total = 0;
+
+    // Ambil semua baris dari semua tbody
+    const tBodies = table.querySelectorAll("tbody");
+    tBodies.forEach(tbody => {
+      const rows = tbody.querySelectorAll("tr");
+      rows.forEach(row => {
+        const donasiCell = row.cells[3];
+        if (donasiCell) {
+          // Ambil angka dari string, buang "Rp" dan titik
+          const angka = donasiCell.textContent.replace(/[^\d]/g, "");
+          total += parseInt(angka, 10);
+        }
+      });
+    });
+
+    // Format total donasi ke dalam format Rupiah
+    totalCell.textContent = formatRupiah(total);
+  });
+
+  function formatRupiah(angka) {
+    return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+</script>
+
+    <div class="container-fluid px-2 mb-5">
+  <div class="card shadow text-white border-0 rounded-4 p-4" style="background: linear-gradient(135deg, #14532d, #04630c); position: relative;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">
+        <i class="fas fa-hand-holding-heart me-2 text-warning"></i>
+        <strong>Ayo Berdonasi untuk Dakwah & Pendidikan!</strong>
+      </h5>
+
+      <div class="row align-items-center">
+        <!-- QR Code -->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+          <div class="bg-white rounded p-3">
+            <img src="img/qris.png" alt="QRIS Donasi" class="img-fluid" style="max-height: 250px;">
+          </div>
+          <p class="text-warning mt-2 mb-0 fw-semibold">Scan QRIS untuk berdonasi</p>
+        </div>
+
+        <!-- Garis Vertikal -->
+        <div class="col-md-1 d-none d-md-flex justify-content-center">
+          <div style="width: 2px; background-color: #ffc107; height: 180px;"></div>
+        </div>
+
+        <!-- Teks ajakan -->
+        <div class="col-md-7">
+          <p class="fw-semibold">
+            Mari menjadi bagian dari gerakan kebaikan melalui donasi untuk mendukung kegiatan dakwah, pendidikan santri, dan sosial.
+          </p>
+          <ul class="mb-3">
+            <li>Bantu operasional pondok dan majelis taklim</li>
+            <li>Dukung pendidikan anak-anak penghafal Qur'an</li>
+            <li>Wujudkan program sosial & kemanusiaan</li>
+          </ul>
+          <p class="mb-2"><i class="fas fa-university text-warning me-2"></i><strong>Bank Mandiri</strong>: 1660-0061-70021 <br> A/N: Almanhajussawi Dhiyau Nusantara</p>
+          <p class="mb-2"><i class="fas fa-phone-alt text-warning me-2"></i>Konfirmasi: 0812-XXXX-XXXX (Admin Donasi)</p>
+          <a href="https://wa.me/62812XXXXXXX" target="_blank" class="btn btn-warning fw-semibold rounded-pill px-4 mt-2">
+            <i class="fab fa-whatsapp me-1"></i> Konfirmasi via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Logo Media Sosial di Ujung Kanan Bawah -->
+      <div class="position-absolute bottom-0 end-0 p-3">
+        <a href="https://tiktok.com/@kongkowams_" target="_blank" class="me-2">
+          <i class="fab fa-tiktok fs-5 text-white"></i>
+        </a>
+        <a href="https://instagram.com/kongkowams_" target="_blank" class="me-2">
+          <i class="fab fa-instagram fs-5" style="color: #db0a9d;"></i>
+        </a>
+        <a href="https://youtube.com/@kongkowams_" target="_blank">
+          <i class="fab fa-youtube fs-5 text-danger"></i>
+        </a>
+      </div>
+
+      <p class="text-center mt-4 mb-0 fw-semibold fst-italic">"Sedekahmu menyinari jalan dakwah kami"</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

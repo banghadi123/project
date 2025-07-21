@@ -1,0 +1,123 @@
+#typed-text {
+  font-size: 3rem;
+  color: #064420;
+  font-weight: bold;
+  border-right: 2px solid #064420;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+@keyframes slideLogo {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
+}
+
+@keyframes blinkCursor {
+  0% { border-color: transparent; }
+  50% { border-color: #064420; }
+  100% { border-color: transparent; }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fff8;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#typed-text-1,
+#typed-text-2,
+#typed-paragraph,
+#typed-extra-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#typed-text-1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-right: 2px solid #ffffff;
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+  0% { border-color: transparent; }
+  50% { border-color: #ffffff; }
+  100% { border-color: transparent; }
+}
+#typed-text-1,
+#typed-text-2,
+#typed-paragraph,
+#typed-extra-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#typed-text-1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-right: 2px solid #ffffff;
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+  0% { border-color: transparent; }
+  50% { border-color: #ffffff; }
+  100% { border-color: transparent; }
+}
+#typed-paragraph {
+  font-size: 1.8rem; /* Ganti angka ini sesuai keinginan */
+  font-weight: bold;
+  color: #ffffff;
+}
+.logo-left {
+  width: 80px;
+  height: auto;
+}
+
+.hero-content-wrapper {
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.org-chart {
+  position: relative;
+}
+
+.org-line {
+  width: 2px;
+  height: 30px;
+  background-color: #999;
+  margin: 0 auto 30px auto;
+}
+
+
+
+
+

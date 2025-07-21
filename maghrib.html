@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+   body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fff8;
+}
+
+/* Navbar Hijau Tua */
+.navbar-custom {
+  background-color: #000000; /* Navbar atas: hitam */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #d1fae5 !important;
+}
+
+.offcanvas {
+  background-color: #000000; /* Sidebar: hitam */
+}
+
+.offcanvas .nav-link {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.offcanvas .nav-link:hover {
+  color: #d1fae5;
+}
+
+.offcanvas-header .btn-close {
+  filter: invert(1); /* Biar tombol 'x' kelihatan di background gelap */
+}
+
+/* Hero Hijau Tua */
+.hero {
+  background-color: #04630c;
+  background: linear-gradient(to right, #2695a3, #79ca64);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #e4f9e7;
+  margin-top: 10px;
+}
+
+/* Footer Hijau Tua */
+footer {
+  background-color: #37883d;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 500;
+}
+/* Animasi Logo Melayang */
+.floating-logos {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floating-logos img.floating {
+  position: absolute;
+  width: 40px;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+
+  .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+#typed-extra-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+#typed-paragraph {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+/* Animasi Fade In */
+  .animated {
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .responsive-logo {
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-logo {
+    max-width: 150px;
+  }
+}
+.running-text-container {
+    width: 100%;
+    overflow: hidden;
+    background: #37883d; /* bisa diganti sesuai tema */
+    white-space: nowrap;
+  }
+
+  .running-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  /* Navbar lebih tinggi dan tetap hitam */
+.navbar-custom {
+  background-color: #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.7rem;
+  min-height: 70px; /* menambah tinggi navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container teks berjalan */
+.marquee-horizontal-container {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 2.5em; /* cukup untuk 2 baris */
+  line-height: 1.2;
+}
+
+/* Teks berjalan dua baris */
+.marquee-horizontal-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 12s linear infinite;
+  padding-left: 100%; /* Mulai dari kanan */
+}
+
+/* Setiap baris teks */
+.marquee-horizontal-text > div {
+  display: block;
+}
+
+/* Animasi scroll kiri */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+</style>
+</head>
+<body>
+ <!-- Navbar -->
+<!-- Tombol Toggle Sidebar -->
+<nav class="navbar navbar-custom fixed-top">
+  <div class="container-fluid d-flex align-items-center">
+    <!-- Tombol Sidebar -->
+    <button class="btn me-3" style="background-color: black; color: white;" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+  ☰
+</button>
+
+
+    <!-- Marquee horizontal: dua baris -->
+     
+    <img src="img/yayasan.png" alt="Logo Yayasan" style="height: 40px; margin-right: 10px;" />
+    <div class="marquee-horizontal-container">
+      <div class="marquee-horizontal-text">
+      <div class="fw-bold text-dark">
+       YAYASAN ALMANHAJUSSAWI DHIYAU NUSANTARA.
+     </div>
+        <div class="small" style="color: black;">
+          KEMENKUMHAM NO : AHU-0021398.AH.01.04.TAHUN 2022
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="offcanvas offcanvas-start text-white" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+      <li class="nav-item"><a class="nav-link" href="profile.html">Profil</a></li>
+      <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+      <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
+
+      <!-- Dropdown Data -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseData" role="button" aria-expanded="false" aria-controls="collapseData">
+          Data ▾
+        </a>
+        <div class="collapse" id="collapseData">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link" href="maghrib.html">Maghrib</a></li>
+            <li class="nav-item"><a class="nav-link" href="isya.html">Isya</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Konten Utama -->
+<main>
+  <main style="padding-top: 80px;">
+<style>
+    body {
+      background-color: #f0fdf4;
+      padding-top: 60px;
+    }
+    .santri-card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 100, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .santri-card:hover {
+      transform: scale(1.03);
+    }
+    .santri-name {
+      color: #14532d;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .motto {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+   <div class="container text-center">
+    <h2 class="mb-4 text-success fw-bold">📖 Data Santri Yayasan 📖</h2>
+
+    <div id="carouselSantri" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/Ustadz H. Waisul Qurni Zainudin.png" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 1">
+                  <div class="santri-name">Ahmad Fauzi</div>
+                  <div>Jenjang: MA</div>
+                  <div class="motto">"Belajar untuk menjadi bermanfaat."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/Habib Salim.png " class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 2">
+                  <div class="santri-name">Siti Aminah</div>
+                  <div>Jenjang: MTs</div>
+                  <div class="motto">"Ilmu adalah cahaya hati."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri3.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 3">
+                  <div class="santri-name">Muhammad Ihsan</div>
+                  <div>Jenjang: MA</div>
+                  <div class="motto">"Rajin belajar, raih keberkahan."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri4.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 4">
+                  <div class="santri-name">Fatimah Zahra</div>
+                  <div>Jenjang: MTs</div>
+                  <div class="motto">"Jadilah cahaya di tengah kegelapan."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri5.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 5">
+                  <div class="santri-name">Ali Zain</div>
+                  <div>Jenjang: MA</div>
+                  <div class="motto">"Hafal Qur'an, bahagia dunia akhirat."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri6.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 6">
+                  <div class="santri-name">Nur Aisyah</div>
+                  <div>Jenjang: MTs</div>
+                  <div class="motto">"Taat ilmu, taat guru."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri7.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 7">
+                  <div class="santri-name">Ali Rizki</div>
+                  <div>Jenjang: MTs</div>
+                  <div class="motto">"Menuntut ilmu sampai liang lahat."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri8.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 8">
+                  <div class="santri-name">Zain Santoso</div>
+                  <div>Jenjang: MA</div>
+                  <div class="motto">"Belajar untuk menjadi bermanfaat."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri9.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 9">
+                  <div class="santri-name">Ahmad Aminah</div>
+                  <div>Jenjang: MA</div>
+                  <div class="motto">"Rajin belajar, raih keberkahan."</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card santri-card p-3">
+                <div class="card-body text-center">
+                  <img src="img/santri10.jpg" class="img-fluid rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;" alt="Santri 10">
+                  <div class="santri-name">Rina Wulandari</div>
+                  <div>Jenjang: MTs</div>
+                  <div class="motto">"Berakhlak mulia, hidup bahagia."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Control -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselSantri" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-success rounded-circle p-2"></span>
+        <span class="visually-hidden">Sebelumnya</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselSantri" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-success rounded-circle p-2"></span>
+        <span class="visually-hidden">Berikutnya</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</main>
+</main>
+
+
+
+  <!-- Footer -->
+  <footer>
+  <marquee behavior="scroll" direction="left">
+    <i class="fab fa-tiktok" style="color: #000000;"></i>
+    <span style="color: #000000;"> Tiktok: kongkowams_ </span>
+    
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+    <i class="fab fa-instagram" style="color: #db0a9d;"></i>
+    <span style="color: #db0a9d;"> Instagram: kongkowams_</span>
+
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+    <i class="fab fa-youtube" style="color: #FF0000;"></i>
+    <span style="color: #FF0000;"> Youtube: kongkowams_ </span>
+
+    &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+   <span style="color: #000000;">BERGERAK BERSAMA. WUJUDKAN HARAPAN LEWAT BANK MANDIRI 1660-0061-70021 KODE BANK 008 A/N ALMANHAJUSSAWI DHIYAU</span>
+
+   &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in-up");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("appear");
+          observer.unobserve(entry.target); // hanya muncul sekali
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

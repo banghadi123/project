@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8fff8;
+    }
+
+    .navbar-custom {
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 0.6rem 1rem;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      animation: scrollText 18s linear infinite;
+      padding-left: 100%;
+      white-space: nowrap;
+    }
+
+    .marquee-text > div {
+      display: inline-block;
+      margin-right: 50px;
+    }
+
+    @keyframes scrollText {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @media (max-width: 768px) {
+      .marquee-text {
+        font-size: 0.8rem;
+      }
+    }
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #d1fae5 !important;
+}
+
+.offcanvas {
+  background-color: #000000;
+}
+
+.offcanvas .nav-link {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.offcanvas .nav-link:hover {
+  color: #d1fae5;
+}
+
+.offcanvas-header .btn-close {
+  filter: invert(1);
+}
+
+.hero {
+  background-color: #04630c;
+  background: linear-gradient(to right, #2695a3, #79ca64);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #e4f9e7;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #37883d;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.floating-logos {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floating-logos img.floating {
+  position: absolute;
+  width: 40px;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#typed-extra-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+#typed-paragraph {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.animated {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.responsive-logo {
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-logo {
+    max-width: 150px;
+  }
+}
+
+.running-text-container {
+  width: 100%;
+  overflow: hidden;
+  background: #37883d;
+  white-space: nowrap;
+}
+
+.running-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-horizontal-container {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 2.5em;
+  line-height: 1.2;
+}
+
+.marquee-horizontal-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 12s linear infinite;
+  padding-left: 100%;
+}
+
+.marquee-horizontal-text > div {
+  display: block;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media (max-width: 576px) {
+  .hero-content-wrapper img {
+    width: 60px !important;
+  }
+
+.hero-content-wrapper img:nth-child(2) {
+    width: 180px !important; /* logo utama */
+  }
+}
+/* Logo ukuran fleksibel */
+.small-logo {
+  width: 130px;
+  height: auto;
+}
+
+.main-logo {
+  width: 220px;
+  height: auto;
+}
+
+/* Ukuran logo lebih besar di HP */
+@media (max-width: 576px) {
+  .small-logo {
+    width: 150px; /* naik dari 130px */
+  }
+
+  .main-logo {
+    width: 250px; /* naik dari 220px */
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-custom fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- Kiri: Sidebar + Logo -->
+    <div class="d-flex align-items-center">
+      <button class="btn me-3" style="background-color: black; color: white;" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        ☰
+      </button>
+      <img src="img/yayasan.png" alt="Logo Yayasan" style="height: 40px; margin-right: 10px;" />
+    </div>
+
+    <!-- Tengah: Marquee -->
+    <div class="flex-grow-1 mx-2 marquee-horizontal-container">
+      <div class="marquee-horizontal-text">
+        <div class="fw-bold text-dark">YAYASAN ALMANHAJUSSAWI DHIYAU NUSANTARA.</div>
+        <div class="small text-dark">KEMENKUMHAM NO : AHU-0021398.AH.01.04.TAHUN 2022</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- sidebar.php -->
+<div class="offcanvas offcanvas-start text-white" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">BERANDA</a></li>
+      <li class="nav-item"><a class="nav-link" href="profile.html">PROFIL</a></li>
+      <li class="nav-item"><a class="nav-link" href="portofolio.html">PORTOFOLIO</a></li>
+
+      <!-- Dropdown Data -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseData" role="button" aria-expanded="false" aria-controls="collapseData">
+          DATA ▾
+        </a>
+        <div class="collapse" id="collapseData">
+          <ul class="nav flex-column ms-3">
+          <li class="nav-item"><a class="nav-link" href="santri_maghrib.html">SANTRI MAGHRIB</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_isya.html">SANTRI ISYA</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_ibu.html">SANTRI IBU</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_bpk.html">SANTRI BPK</a></li>
+         <li class="nav-item"><a class="nav-link" href="santri_tpq.html">SANTRI TPQ</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="kontak.html">KONTAK</a></li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Hero Section -->
+ <main>
+  <section class="hero">
+  <div class="container d-flex align-items-center justify-content-center flex-wrap gap-3 hero-content-wrapper">
+
+  <!-- Logo kecil kiri -->
+  <img src="img/ams.png" alt="Logo Kecil Kiri" style="width: 120px; height: auto;">
+
+  <!-- Logo utama -->
+  <img src="img/yayasan.png" alt="Logo Utama" style="width: 250px; height: auto;">
+
+  <!-- Logo kecil kanan -->
+  <img src="img/tpq.png" alt="Logo Kecil Kanan" style="width: 120px; height: auto;">
+
+  <!-- Tulisan -->
+  <div class="text-center w-100 mt-4">
+    <h1 style="direction: rtl; font-family: 'Scheherazade', serif;">
+      <span id="typed-text-1"></span><br>
+      <span id="typed-text-2"></span>
+    </h1>
+    <p><span id="typed-paragraph"></span></p>
+    <p id="typed-extra-text"></p>
+  </div>
+    
+  </div>
+</section>
+ <!-- Main Content -->
+<div class="container-fluid mt-5 px-2">
+  <div class="row">
+    <!-- Kolom kiri: Peta -->
+    <div class="col-md-5 mb-4">
+      <!-- Card Lokasi -->
+      <div class="card shadow text-white mb-4" style="background-color: #04630c;">
+        <div class="card-body">
+          <h5 class="card-title">Lokasi Majelis</h5>
+          <div class="map-responsive">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.502684636571!2d106.8995705!3d-6.2201358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1707a6cbce3%3A0x7169bbb78d224055!2sKongkow%20Taklim%20Al%20Manhajussawi!5e0!3m2!1sid!2sid!4v1717450930102!5m2!1sid!2sid" 
+              width="100%" 
+              height="250" 
+              style="border:0;" 
+              allowfullscreen 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tambahan Card di bawah Google Maps -->
+      <div class="card shadow text-white" style="background-color: #32b448;">
+        <div class="card-body">
+          <h5 class="card-title">Misi kami</h5>
+          <ul class="fs-5">
+            <li>Menyelenggarakan pendidikan Islam yang mengedepankan nilai toleransi dan keterbukaan</li>
+            <li>Membangun kolaborasi dengan berbagai pihak untuk menciptakan lingkungan yang harmonis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kolom kanan: Visi & Video -->
+    <div class="col-md-7 px-2">
+      <!-- Card Visi -->
+      <div class="card shadow text-white mb-4" style="background-color: #32b448;">
+        <div class="card-body">
+          <h4 class="card-title">Visi Kami</h4>
+          <p class="card-text fs-4">
+            "Mewujudkan generasi Qurani yang toleran dan inklusif untuk membangun masyarakat Indonesia yang harmonis dan peduli sosial"
+          </p>
+        </div>
+      </div>
+
+      <!-- Carousel Video + Info -->
+      <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 1</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/hNMTxkQkO8Y" 
+                  title="Video 1" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 2</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/OSmUsnqHnxU?si=ysc_cfbPXLQ87kaD" 
+                  title="Video 2" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 3</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/W4ZROIVtkRg?si=cn4fvrm9P0VcteLg" 
+                  title="Video 3" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-item">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 4</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/9fOY50ChFgI?si=Q-du-LEMMFk509Ry" 
+                  title="Video 4" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Slide 5-->
+    <div class="carousel-item">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 5</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/GdHt-AKf2dM?si=k23gAltyu-4PoNRF" 
+                  title="Video 5" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 6-->
+    <div class="carousel-item">
+      <div class="card shadow text-white" style="background-color: #04630c">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Video 6</h5>
+          <div class="d-flex justify-content-center">
+            <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/Qoda8Qw5bRk?si=QmTyS47QdaEbY7k_" 
+                  title="Video 6" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 7: Papan Informasi -->
+<div class="carousel-item">
+  <div class="card shadow text-white" style="background-color: #04630c">
+    <div class="card-body">
+      <h5 class="card-title mb-3 text-center">
+        <i class="fas fa-bullhorn me-2 text-warning"></i> Papan Informasi
+      </h5>
+      <div class="d-flex justify-content-center">
+        <div style="width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden;">
+          <!-- Konten non-video dengan padding agar tinggi mendekati video -->
+          <div class="p-3" style="background-color: rgba(255, 255, 255, 0.05); min-height: 281px;">
+            <ul class="fs-6 mb-4">
+              <li>Pendaftaran Santri Baru dibuka hingga 30 Juli 2025.</li>
+              <li>Majelis Taklim libur pada 10 Dzulhijjah (Idul Adha).</li>
+              <li>Donasi pembangunan musholla sudah 80% dari target.</li>
+              <li>Gabung di grup WhatsApp untuk info kegiatan rutin.</li>
+            </ul>
+            <div class="text-center">
+              <a href="kontak.html" class="btn btn-warning text-dark fw-semibold px-4 py-2 rounded-pill">
+                Info Selengkapnya
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Sebelumnya</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Berikutnya</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pengumuman Donatur -->
+ <!-- Pengumuman Donatur -->
+<div class="container-fluid px-2 mb-5">
+  <div class="card shadow text-white border-0 rounded-4 p-3" style="background: linear-gradient(135deg, #14532d, #04630c);">
+    <div class="card-body text-center">
+      <h5 class="card-title mb-3">
+        <i class="fas fa-hand-holding-heart me-2 text-warning"></i>
+        <strong>Informasi untuk Para Pewujud Harapan</strong>
+      </h5>
+      <p class="mb-3">
+        Terima kasih kepada seluruh pewujud harapan atas kepercayaannya dalam mendukung kegiatan dakwah, pendidikan, dan sosial kami.
+      </p>
+
+      <div class="text-center mb-4">
+        <p class="mb-1 fw-semibold">Click here</p>
+        <div style="font-size: 1.2rem; color: #ffc107; line-height: 1;">↓</div>
+        <a href="kontak.html" class="btn btn-warning fw-semibold py-2 px-3 rounded-pill mt-2" style="font-size: 0.9rem;">
+          أَهْلُ الْخَيْر
+        </a>
+      </div>
+
+      <h6 class="text-warning mb-1">Konfirmasi & Info</h6>
+      <p class="mb-1"><i class="fas fa-envelope"></i> Email: info@yayasan.org</p>
+      <p class="mb-1"><i class="fas fa-phone-alt"></i> 0812-XXXX-XXXX (Admin Donasi)</p>
+      <p class="mb-4"><i class="fab fa-whatsapp"></i> Klik untuk chat: 
+       
+      </p>
+
+      <!-- Running Text Inside Card -->
+      <hr class="border-light">
+      <div class="running-text-container mb-3">
+        <div class="running-text small">
+          <i class="fab fa-tiktok" style="color: #000;"></i>
+          <span style="color: #000;"> Tiktok: kongkowams_ </span>
+          &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+          <i class="fab fa-instagram" style="color: #db0a9d;"></i>
+          <span style="color: #db0a9d;"> Instagram: kongkowams_</span>
+          &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+          <i class="fab fa-youtube" style="color: #FF0000;"></i>
+          <span style="color: #FF0000;"> Youtube: kongkowams_ </span>
+          &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+          <span class="text-dark">BERGERAK BERSAMA. WUJUDKAN HARAPAN LEWAT BANK MANDIRI 1660-0061-70021 KODE BANK 008 A/N ALMANHAJUSSAWI DHIYAU</span>
+        </div>
+      </div>
+
+      <!-- Penutup -->
+      <p class="mt-2 mb-0 fw-semibold fst-italic">"Mau berkah? ya ngajilah"</p>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  const text1 = "أهلاً وسهلاً بحضوركم";
+  const text2 = "السلام عليكم ورحمة الله وبركاته";
+  const paragraphText = "SELAMAT DATANG DI YAYASAN PENDIDIKAN ISLAM DAN SOSIAL"; 
+  const extraText = "ALMANHAJUSSAWI DHIYAU NUSANTARA";
+  
+  const typedText1 = document.getElementById("typed-text-1");
+  const typedText2 = document.getElementById("typed-text-2");
+  const typedParagraph = document.getElementById("typed-paragraph");
+  const typedExtraText = document.getElementById("typed-extra-text");
+
+  let index1 = 0;
+  let index2 = 0;
+  let indexP = 0;
+  let indexExtra = 0;
+
+  function typeFirstLine() {
+    if (index1 < text1.length) {
+      typedText1.innerHTML += text1.charAt(index1);
+      index1++;
+      setTimeout(typeFirstLine, 80);
+    } else {
+      setTimeout(typeSecondLine, 500);
+    }
+  }
+
+  function typeSecondLine() {
+    if (index2 < text2.length) {
+      typedText2.innerHTML += text2.charAt(index2);
+      index2++;
+      setTimeout(typeSecondLine, 80);
+    } else {
+      setTimeout(typeParagraph, 600);
+    }
+  }
+
+  function typeParagraph() {
+    if (indexP < paragraphText.length) {
+      typedParagraph.innerHTML += paragraphText.charAt(indexP);
+      indexP++;
+      setTimeout(typeParagraph, 40);
+    } else {
+      setTimeout(typeExtraText, 500);
+    }
+  }
+
+  function typeExtraText() {
+    if (indexExtra < extraText.length) {
+      typedExtraText.innerHTML += extraText.charAt(indexExtra);
+      indexExtra++;
+      setTimeout(typeExtraText, 40);
+    }
+  }
+
+  window.addEventListener("load", typeFirstLine);
+</script>
+</body>
+</html>
