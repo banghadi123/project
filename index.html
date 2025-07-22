@@ -255,16 +255,6 @@ footer {
   height: auto;
 }
 
-/* Ukuran logo lebih besar di HP */
-@media (max-width: 576px) {
-  .small-logo {
-    width: 150px; /* naik dari 130px */
-  }
-
-  .main-logo {
-    width: 250px; /* naik dari 220px */
-  }
-}
 </style>
 </head>
 <body>
@@ -324,31 +314,75 @@ footer {
 
   <!-- Hero Section -->
  <main>
-  <section class="hero">
+  
+<section class="hero">
+  <style>
+  .hero {
+    padding: 30px 10px;
+  }
+
+  .hero-content-wrapper {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: auto;
+  }
+
+  .hero-main-logo {
+    width: 250px;
+    height: auto;
+  }
+
+  @media (max-width: 576px) {
+    .hero-content-wrapper {
+      flex-wrap: wrap;
+    }
+
+    .hero-logo {
+      width: 80px;
+    }
+
+    .hero-main-logo {
+      width: 180px;
+    }
+
+    .hero h1 {
+      font-size: 1.3rem;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
   <div class="container d-flex align-items-center justify-content-center flex-wrap gap-3 hero-content-wrapper">
 
-  <!-- Logo kecil kiri -->
-  <img src="img/ams.png" alt="Logo Kecil Kiri" style="width: 120px; height: auto;">
+    <!-- Logo kecil kiri -->
+    <img src="img/ams.png" alt="Logo Kecil Kiri" style="width: 120px; height: auto;">
 
-  <!-- Logo utama -->
-  <img src="img/yayasan.png" alt="Logo Utama" style="width: 250px; height: auto;">
+    <!-- Logo utama -->
+    <img src="img/yayasan.png" alt="Logo Utama" style="width: 250px; height: auto;">
 
-  <!-- Logo kecil kanan -->
-  <img src="img/tpq.png" alt="Logo Kecil Kanan" style="width: 120px; height: auto;">
+    <!-- Logo kecil kanan -->
+    <img src="img/tpq.png" alt="Logo Kecil Kanan" style="width: 120px; height: auto;">
 
-  <!-- Tulisan -->
-  <div class="text-center w-100 mt-4">
-    <h1 style="direction: rtl; font-family: 'Scheherazade', serif;">
-      <span id="typed-text-1"></span><br>
-      <span id="typed-text-2"></span>
-    </h1>
-    <p><span id="typed-paragraph"></span></p>
-    <p id="typed-extra-text"></p>
+    <!-- Tulisan -->
+    <div class="text-center w-100 mt-4">
+      <h1 style="direction: rtl; font-family: 'Scheherazade', serif;">
+        <span id="typed-text-2"></span>
+      </h1>
+      <p><span id="typed-paragraph"></span></p>
+      <p id="typed-extra-text"></p>
+    </div>
+
   </div>
-    
-  </div>
-</section>
- <!-- Main Content -->
+</section> <!-- Main Content -->
 <div class="container-fluid mt-5 px-2">
   <div class="row">
     <!-- Kolom kiri: Peta -->
@@ -596,7 +630,7 @@ footer {
       <p class="mb-1"><i class="fas fa-envelope"></i> Email: info@yayasan.org</p>
       <p class="mb-1"><i class="fas fa-phone-alt"></i> 0812-XXXX-XXXX (Admin Donasi)</p>
       <p class="mb-4"><i class="fab fa-whatsapp"></i> Klik untuk chat: 
-       
+      <a href="https://wa.me/6285714612452?text=Assalamu%27alaikum%2C+saya+mau+konfirmasi+donasi" class="text-decoration-underline text-white" target="_blank">WhatsApp</a> 
       </p>
 
       <!-- Running Text Inside Card -->
@@ -625,30 +659,17 @@ footer {
 
 
 <script>
-  const text1 = "أهلاً وسهلاً بحضوركم";
   const text2 = "السلام عليكم ورحمة الله وبركاته";
   const paragraphText = "SELAMAT DATANG DI YAYASAN PENDIDIKAN ISLAM DAN SOSIAL"; 
   const extraText = "ALMANHAJUSSAWI DHIYAU NUSANTARA";
   
-  const typedText1 = document.getElementById("typed-text-1");
   const typedText2 = document.getElementById("typed-text-2");
   const typedParagraph = document.getElementById("typed-paragraph");
   const typedExtraText = document.getElementById("typed-extra-text");
 
-  let index1 = 0;
   let index2 = 0;
   let indexP = 0;
   let indexExtra = 0;
-
-  function typeFirstLine() {
-    if (index1 < text1.length) {
-      typedText1.innerHTML += text1.charAt(index1);
-      index1++;
-      setTimeout(typeFirstLine, 80);
-    } else {
-      setTimeout(typeSecondLine, 500);
-    }
-  }
 
   function typeSecondLine() {
     if (index2 < text2.length) {
@@ -678,7 +699,7 @@ footer {
     }
   }
 
-  window.addEventListener("load", typeFirstLine);
+  window.addEventListener("load", typeSecondLine);
 </script>
 </body>
 </html>
